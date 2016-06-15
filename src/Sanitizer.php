@@ -51,8 +51,13 @@ class Sanitizer
         $this->resetInternal();
 
         // Load default tags/attributes
-        $this->allowedAttrs = AllowedAttributes::getAttributes();
-        $this->allowedTags = AllowedTags::getTags();
+        $this->allowedAttrs = array_map(function($elem) {
+          return strtolower($elem);
+        }, AllowedAttributes::getAttributes());
+
+        $this->allowedTags = array_map(function($elem) {
+          return strtolower($elem);
+        }, AllowedTags::getTags());
     }
 
     /**
@@ -121,7 +126,7 @@ class Sanitizer
 
         $this->setUpBefore();
 
-        $loaded = $this->xmlDocument->loadXML($dirty);
+        $loaded = $this->xmlDocument->loadXML($dirty, LIBXML_DTDLOAD|LIBXML_DTDATTR);
 
         // If we couldn't parse the XML then we go no further. Reset and return false
         if (!$loaded) {
@@ -141,6 +146,10 @@ class Sanitizer
         $clean = $this->xmlDocument->saveXML($this->xmlDocument->documentElement, LIBXML_NOEMPTYTAG);
 
         $this->resetAfter();
+
+        $clean = preg_replace('/xmlns\s*=\s*"[^"]+"/', 'xmlns="http://www.w3.org/2000/svg"', $clean, 1);
+        $clean = preg_replace('/xmlns:xlink\s*=\s*"[^"]+"/', 'xmlns:xlink="http://www.w3.org/1999/xlink"', $clean, 1);
+
         // Return result
         return $clean;
     }
@@ -196,7 +205,7 @@ class Sanitizer
             $currentElement = $elements->item($i);
 
             // If the tag isn't in the whitelist, remove it and continue with next iteration
-            if (!in_array($currentElement->tagName, $this->allowedTags)) {
+            if (!in_array(strtolower($currentElement->tagName), $this->allowedTags)) {
                 $currentElement->parentNode->removeChild($currentElement);
                 continue;
             }
@@ -221,7 +230,7 @@ class Sanitizer
             $attrName = $element->attributes->item($x)->name;
 
             // Remove attribute if not in whitelist
-            if (!in_array($attrName, $this->allowedAttrs)) {
+            if (!in_array(strtolower($attrName), $this->allowedAttrs)) {
                 $element->removeAttribute($attrName);
             }
         }
