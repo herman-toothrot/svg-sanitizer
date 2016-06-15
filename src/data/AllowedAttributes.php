@@ -35,22 +35,31 @@ class AllowedAttributes implements AttributeInterface
 
             // SVG
             'accent-height','accumulate','additivive','alignment-baseline',
-            'ascent','azimuth','baseline-shift','bias','clip','clip-path',
-            'clip-rule','color','color-interpolation','color-interpolation-filters',
-            'color-profile','color-rendering','cx','cy','d','dy','dy','direction',
-            'display','divisor','dur','elevation','end','fill','fill-opacity',
-            'fill-rule','filter','flood-color','flood-opacity','font-family',
-            'font-size','font-size-adjust','font-stretch','font-style','font-variant',
-            'font-weight','image-rendering','in','in2','k1','k2','k3','k4','kerning',
-            'letter-spacing','lighting-color','local','marker-end','marker-mid',
-            'marker-start','max','mask','mode','min','offset','operator','opacity',
-            'order','overflow','paint-order','path','points','r','rx','ry','radius',
-            'restart','scale','seed','shape-rendering','stop-color','stop-opacity',
-            'stroke-dasharray','stroke-dashoffset','stroke-linecap','stroke-linejoin',
-            'stroke-miterlimit','stroke-opacity','stroke','stroke-width','transform',
-            'text-anchor','text-decoration','text-rendering','u1','u2','viewbox',
-            'visibility','word-spacing','wrap','writing-mode','x','x1','x2','y',
-            'y1','y2','z',
+            'ascent','attributename','attributetype','azimuth','basefrequency',
+            'baseline-shift','begin','bias','by','clip','clip-path','clip-rule',
+            'color','color-interpolation','color-interpolation-filters','color-profile',
+            'color-rendering','cx','cy','d','dx','dy','diffuseconstant','direction',
+            'display','divisor','dur','edgemode','elevation','end','fill','fill-opacity',
+            'fill-rule','filter','flood-color','flood-opacity','font-family','font-size',
+            'font-size-adjust','font-stretch','font-style','font-variant','font-weight',
+            'fx', 'fy','g1','g2','glyph-name','glyphref','gradientunits','gradienttransform',
+            'image-rendering','in','in2','k','k1','k2','k3','k4','kerning','keypoints',
+            'keysplines','keytimes','lengthadjust','letter-spacing','kernelmatrix',
+            'kernelunitlength','lighting-color','local','marker-end','marker-mid',
+            'marker-start','markerheight','markerunits','markerwidth','maskcontentunits',
+            'maskunits','max','mask','mode','min','numoctaves','offset','operator',
+            'opacity','order','orient','orientation','origin','overflow','paint-order',
+            'path','pathlength','patterncontentunits','patterntransform','patternunits',
+            'points','preservealpha','r','rx','ry','radius','refx','refy','repeatcount',
+            'repeatdur','restart','result','rotate','scale','seed','shape-rendering',
+            'specularconstant','specularexponent','spreadmethod','stddeviation','stitchtiles',
+            'stop-color','stop-opacity','stroke-dasharray','stroke-dashoffset','stroke-linecap',
+            'stroke-linejoin','stroke-miterlimit','stroke-opacity','stroke','stroke-width',
+            'surfacescale','targetx','targety','transform','text-anchor','text-decoration',
+            'text-rendering','textlength','u1','u2','unicode','values','viewbox',
+            'visibility','vert-adv-y','vert-origin-x','vert-origin-y','word-spacing',
+            'wrap','writing-mode','xchannelselector','ychannelselector','x','x1','x2',
+            'y','y1','y2','z','zoomandpan',
 
             // MathML
             'accent','accentunder','bevelled','close','columnsalign','columnlines',
@@ -64,7 +73,7 @@ class AllowedAttributes implements AttributeInterface
             'voffset',
 
             // XML
-            'xlink:href','xml:id','xlink:title','xml:space',
+            'xlink:href','xml:id','xlink:title','xml:space','xmlns:xlink',
 
 
             // Camel Case
